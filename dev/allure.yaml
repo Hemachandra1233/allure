@@ -28,7 +28,7 @@ spec:
             - ReadWriteMany
         ingress:
           enabled: true
-          tls: true
+          tls: false
           className: "nginx"
           annotations: {}
           hostname: "allure.test.local"
