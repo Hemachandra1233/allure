@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: allure
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: test
+  project: infra
+  source:
+    repoURL: https://midokura.github.io/helm-charts-community/
+    chart: allure
+    targetRevision: 0.1.1
+    helm:
+      # Original values: https://artifacthub.io/packages/helm/midokura-community/allure/0.1.1?modal=values
+      values: |
+        publicViewerEndpoint: true
+        credentials: api-credentials
+        volume:
+          enabled: true
+          storageClassName: ""
+          size: 256Mi
+          existingClaim: ""
+          accessModes:
+            - ReadWriteMany
+        ingress:
+          enabled: true
+          tls: true
+          className: "nginx"
+          annotations: {}
+          hostname: "allure.test.local"
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
