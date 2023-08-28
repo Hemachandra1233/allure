@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: allure-test
+  name: allure-test123
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
