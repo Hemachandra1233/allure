@@ -32,6 +32,7 @@ spec:
           className: "nginx"
           annotations: {}
           hostname: "allure.test.local"
+          secretName: my-tls-secret
   syncPolicy:
     automated: {}
     syncOptions:
