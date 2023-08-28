@@ -29,10 +29,10 @@ spec:
         ingress:
           enabled: true
           tls: true
+          existingSecret: "my-tls-secret"
           className: "nginx"
           annotations: {}
           hostname: "allure.test.local"
-          secretName: my-tls-secret
   syncPolicy:
     automated: {}
     syncOptions:
