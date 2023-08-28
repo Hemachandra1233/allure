@@ -9,7 +9,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: test
-  project: infra
+  project: deafult
   source:
     repoURL: https://midokura.github.io/helm-charts-community/
     chart: allure
